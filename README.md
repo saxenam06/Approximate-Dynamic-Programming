@@ -1,6 +1,8 @@
 A model based Reinforcement Learning algorithm which trains two Actor-Critic NNs that can efficiently compute Optimal Steering control actions for following any path. To Validate the optimality of the trained parameterized control policy, the Actor NN's solution is compared with that provided by MPC(IPOPT) for the corresponding Optimal Control Problem.
 
-# This is a modified version of the [original](https://github.com/mahaitongdae/Approximate-Dynamic-Programming) respository. 
+# This is a modified version of the respository. 
+
+# Below contents from the  [original](https://github.com/mahaitongdae/Approximate-Dynamic-Programming) repository
 
 # Vehicle Tracking Control
 
