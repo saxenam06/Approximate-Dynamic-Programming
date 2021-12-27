@@ -5,10 +5,10 @@ Following results were achieved which clearly shows improvement as compared to t
 
 The retrained network is in [directory](https://github.com/saxenam06/Approximate-Dynamic-Programming/tree/demo/retrained_network/2021-12-27-13-49-10000).
 
-Many Thanks to Haitong Ma for opensourcing the below respository which helped me to understand ADP & Actor-Critic MBRL.
 
 ![image](https://user-images.githubusercontent.com/83720464/147490157-2f2064dd-e846-486f-9294-09302c55e1ea.png)
 
+Many Thanks to Haitong Ma for opensourcing the below respository which helped me to understand ADP & Actor-Critic MBRL.
 
 
 # This is a modified version of the  [original](https://github.com/mahaitongdae/Approximate-Dynamic-Programming) respository. 
