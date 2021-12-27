@@ -138,4 +138,3 @@ def idplot(data,
     else:
         plt.savefig(fname)
 
-
