@@ -27,9 +27,9 @@ print(intro)
 METHODS = ['MPC-10', # MPC-"prediction steps of MPC",
            'ADP',    # Approximate dynamic programming,
            'OP']     # Open-loop
-MAX_ITERATION = 1000        # max iterations
+MAX_ITERATION = 10000        # max iterations
 LR_P = 6e-4                  # learning rate of policy net
-LR_V = 6e-3                  # learning rate of value net
+LR_V = 6e-3                # learning rate of value net
 
 # tasks
 TRAIN_FLAG = 1
@@ -52,7 +52,7 @@ iteration_index = 0
 if LOAD_PARA_FLAG == 1:
     print("********************************* LOAD PARAMETERS *********************************")
     # load pre-trained parameters
-    load_dir = "./Results_dir/2020-10-09-14-42-10000"
+    load_dir = "/content/2021-12-27-13-49-10000/"
     policy.load_parameters(load_dir)
     value.load_parameters(load_dir)
 
@@ -80,7 +80,7 @@ if TRAIN_FLAG == 1:
         if iteration_index == MAX_ITERATION:
             # ==================== Set log path ====================
             #
-            log_dir = "./Results_dir/" + datetime.now().strftime("%Y-%m-%d-%H-%M-" + str(iteration_index))
+            log_dir = "./trained_results/" + datetime.now().strftime("%Y-%m-%d-%H-%M-" + str(iteration_index))
             os.makedirs(log_dir, exist_ok=True)
             value.save_parameters(log_dir)
             policy.save_parameters(log_dir)
