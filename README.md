@@ -1,6 +1,6 @@
 A model based Reinforcement Learning algorithm which trains two Actor-Critic NNs that can efficiently compute Optimal Steering control actions for following any path. To Validate the optimality of the trained parameterized control policy, the Actor NN's solution is compared with that provided by MPC(IPOPT) for the corresponding Optimal Control Problem.
 
-![image](https://user-images.githubusercontent.com/83720464/147480777-94e8231a-528b-46af-a4e4-7ce82800e517.png)
+![image](https://user-images.githubusercontent.com/83720464/147490157-2f2064dd-e846-486f-9294-09302c55e1ea.png)
 
 
 
