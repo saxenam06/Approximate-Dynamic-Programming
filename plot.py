@@ -56,9 +56,9 @@ def plot_comparison(simu_dir, methods):
         heading = (state[:, 4], 180 / np.pi * state[:, 2])
         ref = dy.reference_trajectory(numpy2torch(state[:, 4], state[:, 4].shape)).numpy()
         error = (state[:, 4], state[:, 0] - ref[:, 0])
-        if method.startswith('ADP'):
-            error[1][5:] = error[1][5:] + 0.0013
-            error[1][5:] = 0.98 * error[1][5:]
+        #if method.startswith('ADP'):
+        #    error[1][5:] = error[1][5:] + 0.0013
+        #    error[1][5:] = 0.98 * error[1][5:]
         psi_error = (state[:, 4], 180 / np.pi * (state[:, 2] - ref[:, 2]))
         control_tuple = (state[1:, 4], 180 / np.pi * control)
         utilities = 6 * (state[1:, 0]) ** 2 + 80 * control ** 2
@@ -328,6 +328,3 @@ def plot_phase_plot(methods, log_dir, simu_dir, figsize_scalar=1, ms_size=2.0):
             plt.savefig(fig_path)
 
         state, state_r, x_ref = step_relative(statemodel_plt, state, u)
-
-
-
