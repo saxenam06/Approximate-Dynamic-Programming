@@ -208,4 +208,3 @@ class Train(DynamicsConfig):
         plt.xlabel('iteration')
         plt.ylabel('loss')
         plt.savefig(os.path.join(log_dir, "loss.png"))
-
