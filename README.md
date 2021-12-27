@@ -1,4 +1,11 @@
-A model based Reinforcement Learning algorithm which trains two Actor-Critic NNs that can efficiently compute Optimal Steering control actions for following any path. To Validate the optimality of the trained parameterized control policy, the Actor NN's solution is compared with that provided by MPC(IPOPT) for the corresponding Optimal Control Problem.
+A model based Reinforcement Learning algorithm which trains two Actor-Critic NNs that efficiently compute Optimal Steering control actions for following any path. To Validate the optimality of the trained parameterized control policy, the Actor NN's solution is compared with that provided by MPC(IPOPT) for the corresponding Optimal Control Problem.
+
+As compared to the original code, the objective function of both Actor-Critic NNs and MPC are kept exactly same and the NNs are retrained while adapting learning rates.
+Following results were achieved which clearly shows improvement as compared to the baseline results obtained from the trained network already provided in the original repository. The baseline results shows oscillatory response in both heading angle error and steering action which is not present in the optimal solution provided by MPC thus questioning the optimality of the previously provided trained NNs. With the retrained NNs the oscillatory behavior is almost eliminated and both the heading angle & steering response is very close to the optimal solution provided by MPC. This validates that the retrained NNs provides optimal solution to the corresponding OCP.
+
+The retrained network is in [directory](https://github.com/saxenam06/Approximate-Dynamic-Programming/tree/demo/retrained_network/2021-12-27-13-49-10000).
+
+Many Thanks to Haitong Ma for opensourcing the below respository which helped me to understand ADP & Actor-Critic MBRL.
 
 ![image](https://user-images.githubusercontent.com/83720464/147490157-2f2064dd-e846-486f-9294-09302c55e1ea.png)
 
