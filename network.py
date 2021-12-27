@@ -137,7 +137,6 @@ class Critic(nn.Module):
         x = self.layers(x)
         return x
 
-
     def _initialize_weights(self):
         """
         initial paramete using xavier
