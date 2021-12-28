@@ -52,7 +52,7 @@ iteration_index = 0
 if LOAD_PARA_FLAG == 1:
     print("********************************* LOAD PARAMETERS *********************************")
     # load pre-trained parameters
-    load_dir = "/content/2021-12-27-13-49-10000/"
+    load_dir = "/retrained_network/2021-12-27-13-49-10000/"
     policy.load_parameters(load_dir)
     value.load_parameters(load_dir)
 
