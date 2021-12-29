@@ -10,7 +10,7 @@ The retrained network is in [directory](https://github.com/saxenam06/Approximate
 Many Thanks to Haitong Ma for opensourcing the below respository which helped me to understand ADP & Actor-Critic MBRL.
 
 
-# This is a modified version of the  [original] respository. 
+This is a modified version of the [original] respository. 
 
 # Below contents from the  [original](https://github.com/mahaitongdae/Approximate-Dynamic-Programming) repository
 
