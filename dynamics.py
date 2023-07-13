@@ -179,32 +179,47 @@ class VehicleDynamics(DynamicsConfig):
             y_ref = a * torch.sin(k * state)
             psi_ref = torch.atan(a * k * torch.cos(k * state))
         elif self.reference_traj == 'DLC':
-            width = 3.5
-            line1 = 50
-            straight = 50
-            cycle = 3 * straight + 2 * line1
-            x = state % cycle
+        #     width = 3.5
+        #     line1 = 50
+        #     straight = 50
+        #     cycle = 3 * straight + 2 * line1
+        #     x = state % cycle
+        #     lane_position = torch.zeros([len(state), ])
+        #     lane_angle = torch.zeros([len(state), ])
+        #     for i in range(len(state)):
+        #         if x[i] <= 50:
+        #             lane_position[i] = 0
+        #             lane_angle[i] = 0
+        #         elif 50 < x[i] and x[i] <= 90:
+        #             lane_position[i] = 3.5 / 40 * x[i] - 4.375
+        #             lane_angle[i] = np.arctan(3.5 / 40)
+        #         elif 90 < x[i] and x[i] <= 140:
+        #             lane_position[i] = 3.5
+        #             lane_angle[i] = 0
+        #         elif x[i] > 180:
+        #             lane_position[i] = 0
+        #             lane_angle[i] = 0
+        #         elif 140 < x[i] and x[i] <= 180:
+        #             lane_position[i] = -3.5 / 40 * x[i] + 15.75
+        #             lane_angle[i] = -np.arctan(3.5 / 40)
+        #         else:
+        #             lane_position[i] = 0.
+        #             lane_angle[i] = 0.
+            shape = 2.4
+            dx1=25
+            dx2=21.95
+            dy1=4.05
+            dy2=5.7         #没有任何实际意义，只是参数名称
+            Xs1=27.19
+            Xs2=56.46       #参数名称
             lane_position = torch.zeros([len(state), ])
             lane_angle = torch.zeros([len(state), ])
-            for i in range(len(state)):
-                if x[i] <= 50:
-                    lane_position[i] = 0
-                    lane_angle[i] = 0
-                elif 50 < x[i] and x[i] <= 90:
-                    lane_position[i] = 3.5 / 40 * x[i] - 4.375
-                    lane_angle[i] = np.arctan(3.5 / 40)
-                elif 90 < x[i] and x[i] <= 140:
-                    lane_position[i] = 3.5
-                    lane_angle[i] = 0
-                elif x[i] > 180:
-                    lane_position[i] = 0
-                    lane_angle[i] = 0
-                elif 140 < x[i] and x[i] <= 180:
-                    lane_position[i] = -3.5 / 40 * x[i] + 15.75
-                    lane_angle[i] = -np.arctan(3.5 / 40)
-                else:
-                    lane_position[i] = 0.
-                    lane_angle[i] = 0.
+
+            # for i in range(len(state)):
+            z1=shape/dx1 * (state - Xs1) - shape/2
+            z2=shape/dx2 * (state - Xs2) - shape/2
+            lane_position = dy1/2*(1+ torch.tanh(z1))-dy2/2*(1+torch.tanh(z2))
+            lane_angle = torch.pow(torch.arctan(dy1*(1/torch.cosh(z1))),2) * (1.2/dx1) - dy2 * torch.pow((1/torch.cosh(z2)),2) * (1.2/dx2)
 
             y_ref = lane_position
             psi_ref = lane_angle
